@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid'
 import { addContact } from '../../redux/contactsOps';
+import { selectItems } from '../../redux/contactsSlice';
 import css from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-// import { object, string, number, date } from 'yup';
+
 
 const UserSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,7 +17,7 @@ const UserSchema = Yup.object().shape({
 });
 
 export default function ContactForm() {
-  const PhoneBook = useSelector((state) => state.contacts.items);
+  const PhoneBook = useSelector(selectItems);
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {

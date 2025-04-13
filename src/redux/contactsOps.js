@@ -6,8 +6,8 @@ axios.defaults.baseURL = 'https://67f8f3aa094de2fe6e9fe45b.mockapi.io';
 // Після успішного запиту: tasks/fetchTasks/fulfilled
 // Після запиту з помилкою: tasks/fetchTasks/rejected
 
-export const fetchContacts = createAsyncThunk(
-  'items/fetchTasks',
+export const fetchAll = createAsyncThunk(
+  'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
       const res = await axios.get('/items');
@@ -19,7 +19,7 @@ export const fetchContacts = createAsyncThunk(
 );
 
 export const addContact = createAsyncThunk(
-  'items/addContact',
+  'contacts/addContact',
   async (newContact, thunkAPI) => {
     try {
       const res = await axios.post('/items', newContact);
@@ -31,7 +31,7 @@ export const addContact = createAsyncThunk(
 );
 
 export const deleteContact = createAsyncThunk(
-  'items/deleteContact',
+  'contacts/deleteContact',
   async (contactId, thunkAPI) => {
     try {
       const res = await axios.delete(`/items/${contactId}`);
